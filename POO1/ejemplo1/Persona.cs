@@ -14,26 +14,34 @@ namespace ejemplo1
         private int edad;
         private float sueldo;
         private string nombre;
+
+        public Persona(String nombre) {
+            this.nombre = nombre;
+        }
         //una forma de hacerla (no hay que hacerla asi)
         public void setEdad(int e) {
             edad = e;
         }
 
         public int getEdad() { return edad; }
-
+        /*
         //asi se hace
         public float Sueldo { 
             get { return sueldo; } 
             set {  sueldo = value; }    
         }
-
+        
         public string Nombre
         {
             get { return nombre; }
             set { nombre = value; }
         }
+        */
 
-
+        //Métodos
+        public string saludar() {
+            return "Hola soy..." + nombre;
+        }
 
 
     }

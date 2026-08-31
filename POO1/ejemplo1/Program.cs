@@ -11,12 +11,13 @@ namespace ejemplo1
         static void Main(string[] args)
         {
             /*
-            Persona p1 = new Persona();
+            Persona p1 = new Persona("Pepe");
             p1.setEdad(20);
+            Console.WriteLine(p1.saludar());
             Console.WriteLine("La edad de la persona es: " + p1.getEdad());
-            
-            
 
+
+            
             Perro p1 = new Perro();
             p1.Raza = "Pitbull"; p1.Color = "Marron"; p1.Edad = 1; p1.Nombre = "Pickles";
 
@@ -71,16 +72,26 @@ namespace ejemplo1
 
             }
 
+            
             */
 
-
             Botella b1 = new Botella("Rojo","Plastico");
-            b1.Capacidad = 200;
 
-            int algo = b1.Capacidad;
+            //b1.Capacidad = 200;
 
-            Console.WriteLine("La capacidad de la botella es: " + b1.Capacidad);
+            //Botella b2 = new Botella();
 
+            Console.WriteLine("Capacidad Botella: " +  b1.Capacidad);
+            Console.WriteLine("La cantidad actual es: " + b1.CantidadActual);
+
+            b1.recargar();
+            Console.WriteLine("Luego de recargar, la cantidad actual es: " + b1.CantidadActual);
+
+            //int algo = b1.Capacidad;
+
+            //Console.WriteLine("La capacidad de la botella es: " + b1.Capacidad);
+
+            Console.ReadKey();
 
 
         }
