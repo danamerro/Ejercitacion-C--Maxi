@@ -14,10 +14,11 @@ namespace ejemplo1
             Persona p1 = new Persona("Pepe");
             p1.setEdad(20);
             Console.WriteLine(p1.saludar());
+            Console.WriteLine(p1.saludar("DANA"));
             Console.WriteLine("La edad de la persona es: " + p1.getEdad());
+            */
 
-
-            
+            /*
             Perro p1 = new Perro();
             p1.Raza = "Pitbull"; p1.Color = "Marron"; p1.Edad = 1; p1.Nombre = "Pickles";
 
@@ -80,16 +81,23 @@ namespace ejemplo1
             //b1.Capacidad = 200;
 
             //Botella b2 = new Botella();
-
+            
             Console.WriteLine("Capacidad Botella: " +  b1.Capacidad);
             Console.WriteLine("La cantidad actual es: " + b1.CantidadActual);
 
-            b1.recargar();
+            b1.recargar(20);
             Console.WriteLine("Luego de recargar, la cantidad actual es: " + b1.CantidadActual);
 
+
+            b1.recargar();
+            Console.WriteLine("Luego de recargar, la cantidad actual es: " + b1.CantidadActual);
+            
             //int algo = b1.Capacidad;
 
             //Console.WriteLine("La capacidad de la botella es: " + b1.Capacidad);
+
+            //float valor = 1.233333F;
+            //Console.WriteLine(valor.ToString());
 
             Console.ReadKey();
 

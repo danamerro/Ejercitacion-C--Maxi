@@ -87,5 +87,14 @@ namespace ejemplo1
             }
             return 50;
         }
+
+        public float recargar(int cantidad) {
+            cantidadActual += cantidad;
+            return  cantidad * 50 / 100;
+            //100 50
+            // cant X = ??
+
+
+        }
     }
 }
