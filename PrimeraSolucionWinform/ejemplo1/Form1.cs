@@ -19,5 +19,25 @@ namespace ejemplo1
             InitializeComponent();
         }
 
+        //EVENTO (POR DEFAULT)
+        private void btnSaludar_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show("Hola Mundo");
+            string texto = txtNombre.Text;
+            lblSaludo.Text = "HOLA " + texto;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //MessageBox.Show("te doy la bienvenida...");
+        }
+
+        //EVENTO ASOCIADO A OTRO METODO
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //MessageBox.Show("Gracias por usar la APP");
+        }
+
+
     }
 }
