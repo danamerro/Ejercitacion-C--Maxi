@@ -47,7 +47,7 @@ namespace WindowsFormsApp1
             string colorFavorito = cboColorFavorito.SelectedIndex.ToString();
             string numeroFavorito = numNumeroFavorito.Value.ToString();
             string mensaje = chocolate + ", es " + tipo + " ,su color es: " + colorFavorito + ", su número es: " + numeroFavorito;
-            MessageBox.Show("Nombre: " + nombre + " Fecha: " + fecha + ", "+mensaje);
+            MessageBox.Show("Nombre: " + nombre + "Fecha: " + fecha + ", "+mensaje);
         }
     }
 }
