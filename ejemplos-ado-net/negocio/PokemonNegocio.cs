@@ -63,5 +63,13 @@ namespace negocio
             }
             
         }
+
+        public void agregar(Pokemon nuevo) {
+        
+        }
+
+        public void modificar(Pokemon modificar) { 
+        
+        }
     }
 }
