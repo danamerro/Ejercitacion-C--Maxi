@@ -24,7 +24,7 @@ namespace negocio
             try
             {
                 //conf de conexion a db
-                conexion.ConnectionString = "server=localhost,1433; database=POKEDEX_DB; user id=sa; password=CONTRASEÑA; TrustServerCertificate=True;";
+                conexion.ConnectionString = "server=localhost,1433; database=POKEDEX_DB; user id=sa; password=Gluck-3551; TrustServerCertificate=True;";
                 //indica que el comando que se va a ejecutar es de tipo Text
                 comando.CommandType = System.Data.CommandType.Text;
                 //se define consulta que se va a ejecutar
@@ -65,7 +65,23 @@ namespace negocio
         }
 
         public void agregar(Pokemon nuevo) {
-        
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                //una de las formas de setear la consulta
+                datos.setearConsulta("insert into POKEMONS (Numero, Nombre, Descripcion,Activo)values(" + nuevo.Numero + ",'" + nuevo.Nombre + "','" + nuevo.Descripcion + "',1)");
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { 
+                datos.cerrarConexion();
+            }
+
         }
 
         public void modificar(Pokemon modificar) { 

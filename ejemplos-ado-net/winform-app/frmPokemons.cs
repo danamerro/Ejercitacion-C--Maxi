@@ -56,5 +56,12 @@ namespace winform_app
             }
             
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            frmAltaPokemon alta = new frmAltaPokemon();
+            //no permite salir de la aplicacion hasta terminar de trabajar en ella (frmAltaPokemon)
+            alta.ShowDialog();
+        }
     }
 }
