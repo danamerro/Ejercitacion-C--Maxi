@@ -3,11 +3,12 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using dominio;
 
-namespace winform_app
+namespace negocio
 {
     //clase acceso a datos
-     class PokemonNegocio
+     public class PokemonNegocio
     {
         //se declara la clase PokemonNegocio
         public List<Pokemon> listar() {
@@ -45,9 +46,9 @@ namespace winform_app
                     aux.Descripcion = (string)lector["Descripcion"];
                     aux.UrlImagen = (string)lector["UrlImagen"];
                     //atributo tipo no tiene instancia, si no lo instancia me va a dar referencia nula.
-                    aux.Tipo = new Elemento();
+                    aux.Tipo = new dominio.Elemento();
                     aux.Tipo.Descripcion = (string)lector["Tipo"];
-                    aux.Debilidad = new Elemento();
+                    aux.Debilidad = new dominio.Elemento();
                     aux.Debilidad.Descripcion = (string)lector["Debilidad"];
 
                     lista.Add(aux);
