@@ -26,7 +26,7 @@ namespace winform_app
                 //indica que el comando que se va a ejecutar es de tipo Text
                 comando.CommandType = System.Data.CommandType.Text;
                 //se define consulta que se va a ejecutar
-                comando.CommandText = "Select Numero,Nombre,Descripcion from POKEMONS";
+                comando.CommandText = "Select Numero,Nombre,Descripcion,UrlImagen from POKEMONS";
                 //se asocia el comando a la conexion
                 comando.Connection = conexion;
                 //inicia conexion
@@ -41,6 +41,8 @@ namespace winform_app
                     aux.Numero = lector.GetInt32(0);
                     aux.Nombre = (string)lector["Nombre"];
                     aux.Descripcion = (string)lector["Descripcion"];
+                    aux.UrlImagen = (string)lector["UrlImagen"];
+
                     lista.Add(aux);
                 }
                 //se cierra conexion
