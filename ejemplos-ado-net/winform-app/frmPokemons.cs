@@ -23,15 +23,22 @@ namespace winform_app
         private void frmPokemons_Load(object sender, EventArgs e)
         {
             PokemonNegocio negocio = new PokemonNegocio();
-            listaPokemon = negocio.listar();
+            try
+            {
+                listaPokemon = negocio.listar();
+                dgvPokemons.DataSource = listaPokemon;
+                dgvPokemons.Columns["UrlImagen"].Visible = false;
+                cargarImagen(listaPokemon[0].UrlImagen);
 
-            dgvPokemons.DataSource = listaPokemon;
-            dgvPokemons.Columns["UrlImagen"].Visible = false;
+                ElementoNegocio elemento = new ElementoNegocio();
+                cbxTipo.DataSource = elemento.listar();
+            }
+            catch (Exception ex )
+            {
 
-            cargarImagen(listaPokemon[0].UrlImagen);
-
-            ElementoNegocio elemento = new ElementoNegocio();
-            cbxTipo.DataSource = elemento.listar();
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
 
         //va a cambiar la imagen del pokemon a la fila seleccionas

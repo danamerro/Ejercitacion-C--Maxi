@@ -44,7 +44,12 @@ namespace negocio
                     aux.Numero = lector.GetInt32(0);
                     aux.Nombre = (string)lector["Nombre"];
                     aux.Descripcion = (string)lector["Descripcion"];
+                    if (!(lector["UrlImagen"] is  DBNull))
+                        aux.UrlImagen = (string)lector["UrlImagen"];
+                    /*
+                    if(!(lector.IsDBNull(lector.GetOrdinal("UrlImagen"))))
                     aux.UrlImagen = (string)lector["UrlImagen"];
+                    */
                     //atributo tipo no tiene instancia, si no lo instancia me va a dar referencia nula.
                     aux.Tipo = new dominio.Elemento();
                     aux.Tipo.Descripcion = (string)lector["Tipo"];
