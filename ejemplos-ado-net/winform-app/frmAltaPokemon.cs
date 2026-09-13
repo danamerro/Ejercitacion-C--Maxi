@@ -28,6 +28,9 @@ namespace winform_app
                 poke.Numero = int.Parse(txtNumero.Text);
                 poke.Nombre = txtNombre.Text;
                 poke.Descripcion = txtDescripcion.Text;
+                poke.Tipo = (Elemento)cboxTipo.SelectedItem;
+                poke.Debilidad = (Elemento)cboxDebilidad.SelectedItem;
+
                 negocio.agregar(poke);
                 MessageBox.Show("Agregado Exitosamente");
                 Close();
@@ -44,6 +47,21 @@ namespace winform_app
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void frmAltaPokemon_Load(object sender, EventArgs e)
+        {
+            ElementoNegocio elementoNegocio = new ElementoNegocio();
+            try
+            {
+                cboxTipo.DataSource = elementoNegocio.listar();
+                cboxDebilidad.DataSource = elementoNegocio.listar();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

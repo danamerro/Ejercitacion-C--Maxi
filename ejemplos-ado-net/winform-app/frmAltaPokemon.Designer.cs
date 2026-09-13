@@ -36,6 +36,10 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.lblTipo = new System.Windows.Forms.Label();
+            this.lblDebilidad = new System.Windows.Forms.Label();
+            this.cboxTipo = new System.Windows.Forms.ComboBox();
+            this.cboxDebilidad = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblNumero
@@ -50,7 +54,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(89, 66);
+            this.lblNombre.Location = new System.Drawing.Point(89, 54);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 1;
@@ -59,7 +63,7 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(70, 110);
+            this.lblDescripcion.Location = new System.Drawing.Point(70, 88);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(63, 13);
             this.lblDescripcion.TabIndex = 2;
@@ -74,21 +78,21 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(139, 66);
+            this.txtNombre.Location = new System.Drawing.Point(139, 54);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 4;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(139, 110);
+            this.txtDescripcion.Location = new System.Drawing.Point(139, 85);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(100, 20);
             this.txtDescripcion.TabIndex = 5;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(92, 159);
+            this.btnAceptar.Location = new System.Drawing.Point(73, 227);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 6;
@@ -98,7 +102,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(189, 159);
+            this.btnCancelar.Location = new System.Drawing.Point(180, 227);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 7;
@@ -106,11 +110,51 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // lblTipo
+            // 
+            this.lblTipo.AutoSize = true;
+            this.lblTipo.Location = new System.Drawing.Point(89, 119);
+            this.lblTipo.Name = "lblTipo";
+            this.lblTipo.Size = new System.Drawing.Size(28, 13);
+            this.lblTipo.TabIndex = 8;
+            this.lblTipo.Text = "Tipo";
+            // 
+            // lblDebilidad
+            // 
+            this.lblDebilidad.AutoSize = true;
+            this.lblDebilidad.Location = new System.Drawing.Point(82, 158);
+            this.lblDebilidad.Name = "lblDebilidad";
+            this.lblDebilidad.Size = new System.Drawing.Size(51, 13);
+            this.lblDebilidad.TabIndex = 9;
+            this.lblDebilidad.Text = "Debilidad";
+            // 
+            // cboxTipo
+            // 
+            this.cboxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxTipo.FormattingEnabled = true;
+            this.cboxTipo.Location = new System.Drawing.Point(139, 116);
+            this.cboxTipo.Name = "cboxTipo";
+            this.cboxTipo.Size = new System.Drawing.Size(121, 21);
+            this.cboxTipo.TabIndex = 10;
+            // 
+            // cboxDebilidad
+            // 
+            this.cboxDebilidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxDebilidad.FormattingEnabled = true;
+            this.cboxDebilidad.Location = new System.Drawing.Point(139, 155);
+            this.cboxDebilidad.Name = "cboxDebilidad";
+            this.cboxDebilidad.Size = new System.Drawing.Size(121, 21);
+            this.cboxDebilidad.TabIndex = 11;
+            // 
             // frmAltaPokemon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(411, 216);
+            this.ClientSize = new System.Drawing.Size(411, 338);
+            this.Controls.Add(this.cboxDebilidad);
+            this.Controls.Add(this.cboxTipo);
+            this.Controls.Add(this.lblDebilidad);
+            this.Controls.Add(this.lblTipo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtDescripcion);
@@ -122,6 +166,7 @@
             this.Name = "frmAltaPokemon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo Pokemon";
+            this.Load += new System.EventHandler(this.frmAltaPokemon_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,5 +182,9 @@
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label lblTipo;
+        private System.Windows.Forms.Label lblDebilidad;
+        private System.Windows.Forms.ComboBox cboxTipo;
+        private System.Windows.Forms.ComboBox cboxDebilidad;
     }
 }

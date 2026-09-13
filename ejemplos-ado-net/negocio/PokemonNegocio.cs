@@ -24,7 +24,7 @@ namespace negocio
             try
             {
                 //conf de conexion a db
-                conexion.ConnectionString = "server=localhost,1433; database=POKEDEX_DB; user id=sa; password=Gluck-3551; TrustServerCertificate=True;";
+                conexion.ConnectionString = "server=localhost,1433; database=POKEDEX_DB; user id=sa; password=CONTRASEÑA; TrustServerCertificate=True;";
                 //indica que el comando que se va a ejecutar es de tipo Text
                 comando.CommandType = System.Data.CommandType.Text;
                 //se define consulta que se va a ejecutar
