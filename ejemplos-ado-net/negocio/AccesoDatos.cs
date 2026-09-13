@@ -17,6 +17,7 @@ namespace negocio
         }
 
         public AccesoDatos() { 
+            
             conexion = new SqlConnection("server=localhost,1433; database=POKEDEX_DB; user id=sa; password=CONTRASEÑA; TrustServerCertificate=True;");
             comando = new SqlCommand();
         }
@@ -52,6 +53,10 @@ namespace negocio
 
                 throw ex;
             }
+        }
+
+        public void setearParametro(string nombre,object valor) {
+            comando.Parameters.AddWithValue(nombre,valor);
         }
 
         public void cerrarConexion()

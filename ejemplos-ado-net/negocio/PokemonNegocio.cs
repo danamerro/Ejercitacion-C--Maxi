@@ -70,7 +70,9 @@ namespace negocio
             try
             {
                 //una de las formas de setear la consulta
-                datos.setearConsulta("insert into POKEMONS (Numero, Nombre, Descripcion,Activo)values(" + nuevo.Numero + ",'" + nuevo.Nombre + "','" + nuevo.Descripcion + "',1)");
+                datos.setearConsulta("insert into POKEMONS (Numero, Nombre, Descripcion, Activo, IdTipo, IdDebilidad)values(" + nuevo.Numero + ",'" + nuevo.Nombre + "','" + nuevo.Descripcion + "',1, @idTipo, @idDebilidad)");
+                datos.setearParametro("@idTipo",nuevo.Tipo.Id);
+                datos.setearParametro("@idDebilidad", nuevo.Debilidad.Id);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
