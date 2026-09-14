@@ -29,11 +29,13 @@ namespace winform_app
         //va a cambiar la imagen del pokemon a la fila seleccionas
         private void dgvPokemons_SelectionChanged(object sender, EventArgs e)
         {
-           Pokemon seleccionado =  (Pokemon)dgvPokemons.CurrentRow.DataBoundItem;
-            cargarImagen(seleccionado.UrlImagen);
 
-            
-
+            if(dgvPokemons.CurrentRow != null)
+            {
+                Pokemon seleccionado = (Pokemon)dgvPokemons.CurrentRow.DataBoundItem;
+                cargarImagen(seleccionado.UrlImagen);
+            }
+           
         }
 
         private void cargar() {
@@ -42,8 +44,7 @@ namespace winform_app
             {
                 listaPokemon = negocio.listar();
                 dgvPokemons.DataSource = listaPokemon;
-                dgvPokemons.Columns["UrlImagen"].Visible = false;
-                dgvPokemons.Columns["Id"].Visible = false;
+                ocultarColumnas();
                 cargarImagen(listaPokemon[0].UrlImagen);
 
             }
@@ -52,6 +53,11 @@ namespace winform_app
 
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void ocultarColumnas() {
+            dgvPokemons.Columns["UrlImagen"].Visible = false;
+            dgvPokemons.Columns["Id"].Visible = false;
         }
 
         private void cargarImagen(string imagen) {
@@ -123,6 +129,23 @@ namespace winform_app
 
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            List<Pokemon> listaFiltrada;
+            string filtro = txtFiltro.Text;
+            if (filtro != "")
+            {
+                listaFiltrada = listaPokemon.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Tipo.Descripcion.ToUpper().Contains(filtro.ToUpper()));
+            }
+            else {
+                listaFiltrada = listaPokemon;
+            }
+
+            dgvPokemons.DataSource = null;
+            dgvPokemons.DataSource = listaFiltrada;
+            ocultarColumnas();
         }
     }
 }
