@@ -17,7 +17,7 @@ namespace negocio
         }
 
         public AccesoDatos() { 
-            
+            //CONTRASEÑA
             conexion = new SqlConnection("server=localhost,1433; database=POKEDEX_DB; user id=sa; password=CONTRASEÑA; TrustServerCertificate=True;");
             comando = new SqlCommand();
         }

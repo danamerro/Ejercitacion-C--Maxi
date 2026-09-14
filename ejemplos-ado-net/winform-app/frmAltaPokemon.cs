@@ -14,35 +14,52 @@ namespace winform_app
 {
     public partial class frmAltaPokemon : Form
     {
+        private Pokemon pokemon = null;
         public frmAltaPokemon()
         {
             InitializeComponent();
         }
 
+        public frmAltaPokemon(Pokemon pokemon)
+        {
+            InitializeComponent();
+            this.pokemon = pokemon;
+            Text = "Modificar Pokemon";
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            Pokemon poke =  new Pokemon();
             PokemonNegocio negocio = new PokemonNegocio();
             try
             {
-                poke.Numero = int.Parse(txtNumero.Text);
-                poke.Nombre = txtNombre.Text;
-                poke.Descripcion = txtDescripcion.Text;
-                poke.UrlImagen = txbxUrlImagen.Text;
-                poke.Tipo = (Elemento)cboxTipo.SelectedItem;
-                poke.Debilidad = (Elemento)cboxDebilidad.SelectedItem;
+                if (pokemon == null)
+                    pokemon = new Pokemon();
 
-                negocio.agregar(poke);
+                pokemon.Numero = int.Parse(txtNumero.Text);
+                pokemon.Nombre = txtNombre.Text;
+                pokemon.Descripcion = txtDescripcion.Text;
+                pokemon.UrlImagen = txtUrlImagen.Text;
+                pokemon.Tipo = (Elemento)cboxTipo.SelectedItem;
+                pokemon.Debilidad = (Elemento)cboxDebilidad.SelectedItem;
+
+                if (pokemon.Id != 0)
+                {
+                    negocio.modificar(pokemon);
+                    MessageBox.Show("Modificado exitosamente");
+                    
+                }
+                else { 
+                negocio.agregar(pokemon);
                 MessageBox.Show("Agregado Exitosamente");
-                Close();
-
-
+                }
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.ToString());
             }
+
+            Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -56,7 +73,23 @@ namespace winform_app
             try
             {
                 cboxTipo.DataSource = elementoNegocio.listar();
+                cboxTipo.ValueMember = "Id";
+                cboxTipo.DisplayMember = "Descripcion";
                 cboxDebilidad.DataSource = elementoNegocio.listar();
+                cboxDebilidad.ValueMember = "Id";
+                cboxDebilidad.DisplayMember = "Descripcion";
+
+                //tengo un pokemon para cargar
+                if (pokemon != null) {
+                    txtNumero.Text = pokemon.Numero.ToString();
+                    txtNombre.Text = pokemon.Nombre;
+                    txtDescripcion.Text = pokemon.Descripcion;
+                    txtUrlImagen.Text  =pokemon.UrlImagen;
+                    cargarImagen(pokemon.UrlImagen);
+                    cboxTipo.SelectedValue = pokemon.Tipo.Id;
+                    cboxDebilidad.SelectedValue = pokemon.Debilidad.Id;
+
+                }
             }
             catch (Exception ex)
             {
@@ -67,7 +100,7 @@ namespace winform_app
 
         private void txbxUrlImagen_Leave(object sender, EventArgs e)
         {
-            cargarImagen(txbxUrlImagen.Text);
+            cargarImagen(txtUrlImagen.Text);
         }
 
         private void cargarImagen(string imagen)

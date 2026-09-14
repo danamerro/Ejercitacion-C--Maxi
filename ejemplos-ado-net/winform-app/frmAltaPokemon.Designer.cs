@@ -40,7 +40,7 @@
             this.lblDebilidad = new System.Windows.Forms.Label();
             this.cboxTipo = new System.Windows.Forms.ComboBox();
             this.cboxDebilidad = new System.Windows.Forms.ComboBox();
-            this.txbxUrlImagen = new System.Windows.Forms.TextBox();
+            this.txtUrlImagen = new System.Windows.Forms.TextBox();
             this.lblUrlImagen = new System.Windows.Forms.Label();
             this.pbxPokemon = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPokemon)).BeginInit();
@@ -150,13 +150,13 @@
             this.cboxDebilidad.Size = new System.Drawing.Size(121, 21);
             this.cboxDebilidad.TabIndex = 5;
             // 
-            // txbxUrlImagen
+            // txtUrlImagen
             // 
-            this.txbxUrlImagen.Location = new System.Drawing.Point(175, 117);
-            this.txbxUrlImagen.Name = "txbxUrlImagen";
-            this.txbxUrlImagen.Size = new System.Drawing.Size(100, 20);
-            this.txbxUrlImagen.TabIndex = 3;
-            this.txbxUrlImagen.Leave += new System.EventHandler(this.txbxUrlImagen_Leave);
+            this.txtUrlImagen.Location = new System.Drawing.Point(175, 117);
+            this.txtUrlImagen.Name = "txtUrlImagen";
+            this.txtUrlImagen.Size = new System.Drawing.Size(100, 20);
+            this.txtUrlImagen.TabIndex = 3;
+            this.txtUrlImagen.Leave += new System.EventHandler(this.txbxUrlImagen_Leave);
             // 
             // lblUrlImagen
             // 
@@ -182,7 +182,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(750, 338);
             this.Controls.Add(this.pbxPokemon);
-            this.Controls.Add(this.txbxUrlImagen);
+            this.Controls.Add(this.txtUrlImagen);
             this.Controls.Add(this.lblUrlImagen);
             this.Controls.Add(this.cboxDebilidad);
             this.Controls.Add(this.cboxTipo);
@@ -220,7 +220,7 @@
         private System.Windows.Forms.Label lblDebilidad;
         private System.Windows.Forms.ComboBox cboxTipo;
         private System.Windows.Forms.ComboBox cboxDebilidad;
-        private System.Windows.Forms.TextBox txbxUrlImagen;
+        private System.Windows.Forms.TextBox txtUrlImagen;
         private System.Windows.Forms.Label lblUrlImagen;
         private System.Windows.Forms.PictureBox pbxPokemon;
     }
