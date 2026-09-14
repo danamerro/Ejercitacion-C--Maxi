@@ -86,5 +86,27 @@ namespace winform_app
             modificar.ShowDialog();
             cargar();
         }
+
+
+        private void btnEliminarFisico_Click_1(object sender, EventArgs e)
+        {
+            PokemonNegocio negocio =  new PokemonNegocio();
+            Pokemon seleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿De verdad queres eliminarlo?","Eliminando",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes) {
+                    seleccionado = (Pokemon)dgvPokemons.CurrentRow.DataBoundItem;
+                    negocio.eliminar(seleccionado.Id);
+                    cargar();
+                }
+                
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }
