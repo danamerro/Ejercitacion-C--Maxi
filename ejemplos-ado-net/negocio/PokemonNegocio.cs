@@ -28,7 +28,7 @@ namespace negocio
                 //indica que el comando que se va a ejecutar es de tipo Text
                 comando.CommandType = System.Data.CommandType.Text;
                 //se define consulta que se va a ejecutar
-                comando.CommandText = "Select Numero,Nombre,P.Descripcion,UrlImagen,E.Descripcion  Tipo, D.Descripcion Debilidad, P.IdTipo,P.IdDebilidad, P.Id from POKEMONS P,ELEMENTOS E, ELEMENTOS D where E.Id = P.IdTipo and D.Id = P.IdDebilidad;";
+                comando.CommandText = "Select Numero,Nombre,P.Descripcion,UrlImagen,E.Descripcion  Tipo, D.Descripcion Debilidad, P.IdTipo,P.IdDebilidad, P.Id from POKEMONS P,ELEMENTOS E, ELEMENTOS D where E.Id = P.IdTipo and D.Id = P.IdDebilidad And P.Activo = 1;";
                 //se asocia el comando a la conexion
                 comando.Connection = conexion;
                 //inicia conexion
@@ -127,6 +127,21 @@ namespace negocio
                 AccesoDatos datos = new AccesoDatos();
                 datos.setearConsulta("delete from POKEMONS where id = @id");
                 datos.setearParametro("@id",id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void eliminarLogico(int id)  {
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+                datos.setearConsulta("update POKEMONS set Activo = 0 where id = @id");
+                datos.setearParametro("@id", id);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
